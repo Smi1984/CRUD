@@ -29,7 +29,10 @@ class CRUD_GUI:
 
         self.builder = Gtk.Builder()
         self.builder.add_from_file("CRUD.glade")
-        self.handlers = {"OnDeleteWindow": Gtk.main_quit,}
+        self.handlers = {"onDeleteWindow": Gtk.main_quit,
+                         "onAboutDialog": self.onAboutDialog,
+                         "onCloseAbout": self.onCloseAbout,}
+        
         self.builder.connect_signals(self.handlers)
         self.window = self.builder.get_object("stwindow")
         self.window.show_all()
@@ -37,6 +40,13 @@ class CRUD_GUI:
     def destroy(self,window):
         Gtk.main_quit()
     
+    def onAboutDialog(self, *args):
+        self.about = self.builder.get_object("aboutdialog1")
+        self.about.show_all()
+    
+    def onCloseAbout(self, *args):
+        self.about = self.builder.get_object("aboutdialog1")
+        self.about.hide()
   
     
 def main():
