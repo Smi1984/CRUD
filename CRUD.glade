@@ -4,10 +4,13 @@
   <object class="GtkAboutDialog" id="aboutdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
+    <property name="title" translatable="yes">Acerca De</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
     <property name="type_hint">dialog</property>
-    <property name="program_name">GRUP</property>
+    <property name="program_name">CRUD</property>
     <property name="version">1.0</property>
-    <property name="copyright" translatable="yes">Copiright 2013 Sergio Morlans &lt;xxx@gmail.com&gt;</property>
+    <property name="copyright" translatable="yes">Copyright 2013 Sergio Morlans &lt;xxx@gmail.com&gt;</property>
     <property name="comments" translatable="yes">Aplicación de entrega del segundo tema del curso "Programación Avanzada de Python"</property>
     <property name="website">https://github.com/ikkipower/CRUD.git</property>
     <property name="website_label" translatable="yes">Repositorio gitHub</property>
@@ -25,7 +28,8 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA.</property>
-    <property name="authors">Sergio Morlans &lt;xxx@gmail.com&gt;</property>
+    <property name="authors">Sergio Morlans &lt;https://github.com/ikkipower/CRUD.git&gt;</property>
+    <property name="wrap_license">True</property>
     <signal name="response" handler="onCloseAbout" swapped="no"/>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
@@ -129,7 +133,7 @@ MA 02110-1301, USA.</property>
                         <property name="image">image1</property>
                         <property name="use_stock">False</property>
                         <property name="always_show_image">True</property>
-                        <signal name="activate" handler="onBDActionActivate" swapped="no"/>
+                        <signal name="activate" handler="onDBActionActivate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -141,6 +145,7 @@ MA 02110-1301, USA.</property>
                         <property name="image">image2</property>
                         <property name="use_stock">False</property>
                         <property name="always_show_image">True</property>
+                        <signal name="activate" handler="onDBActionActivate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -152,6 +157,7 @@ MA 02110-1301, USA.</property>
                         <property name="image">image3</property>
                         <property name="use_stock">False</property>
                         <property name="always_show_image">True</property>
+                        <signal name="activate" handler="onDBActionActivate" swapped="no"/>
                       </object>
                     </child>
                     <child>
@@ -163,7 +169,7 @@ MA 02110-1301, USA.</property>
                         <property name="image">image4</property>
                         <property name="use_stock">False</property>
                         <property name="always_show_image">True</property>
-                        <signal name="activate" handler="onBDActionActivate" swapped="no"/>
+                        <signal name="activate" handler="onDBActionActivate" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -189,6 +195,7 @@ MA 02110-1301, USA.</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <property name="always_show_image">True</property>
                         <signal name="activate" handler="onAboutDialog" swapped="no"/>
                       </object>
                     </child>
@@ -268,7 +275,10 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Clase</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -281,7 +291,10 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label3">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Tripulación</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -294,7 +307,10 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label4">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Longitud</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">3</property>
@@ -307,7 +323,11 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label5">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Nave</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                  <attribute name="foreground" value="#ffff33330000"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -320,7 +340,10 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label6">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Ancho</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">4</property>
@@ -333,7 +356,10 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label7">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Altura</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">5</property>
@@ -346,7 +372,10 @@ MA 02110-1301, USA.</property>
                               <object class="GtkLabel" id="label8">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">label</property>
+                                <property name="label" translatable="yes">Datos</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -435,7 +464,7 @@ MA 02110-1301, USA.</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="button1">
+                      <object class="GtkButton" id="addButton">
                         <property name="label" translatable="yes">Add</property>
                         <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>

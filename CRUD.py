@@ -3,7 +3,7 @@
 #
 #  CRUD.py
 #       
-#  Copyright 2013 Sergio Morlans <piltzin1984@gmail.com>
+#  Copyright 2013 Sergio Morlans <https://github.com/ikkipower/CRUD.git>
 #       
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,8 +20,14 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
+# CREATE DATABASE DBCrud;
+# GRANT ALL ON DBCrud.* TO 'crud'@'localhost' IDENTIFIED BY 'cruduser';
+# USE DBCrud;
+
 from gi.repository import Gtk, GdkPixbuf, Gdk
+from dbclass import Dbclass
 import os, sys
+import MySQLdb 
 
 class CRUD_GUI:
 
@@ -31,12 +37,28 @@ class CRUD_GUI:
         self.builder.add_from_file("CRUD.glade")
         self.handlers = {"onDeleteWindow": Gtk.main_quit,
                          "onAboutDialog": self.onAboutDialog,
-                         "onCloseAbout": self.onCloseAbout,}
+                         "onCloseAbout": self.onCloseAbout,
+                         "onDBActionActivate": self.onDBActionActivate}
+        
+        dbobj = Dbclass('DBCrud','crud','cruduser')
+        dbobj.connect()
+        dbobj.create_table("ships")
+        
+        button1 = self.builder.get_object("addButton")
+        #self.builder.get_object("label1").set_label("erase")
+        #button1.set_label("Update")
+        button1.set_sensitive(False)
         
         self.builder.connect_signals(self.handlers)
         self.window = self.builder.get_object("stwindow")
         self.window.show_all()
  
+    def onDBActionActivate(self, menuitem):
+		#box = self.builder.get_object("entry1")
+		#box.set_text(menuitem.get_label())
+		self.action = menuitem.get_label() 
+		
+    
     def destroy(self,window):
         Gtk.main_quit()
     
@@ -54,4 +76,4 @@ def main():
     Gtk.main()
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
