@@ -32,14 +32,40 @@ class Dbclass:
           
 
       def connect(self):
-         Conexion = MySQLdb.connect(host='localhost', user='crud',passwd='cruduser', db='DBCrud')
+         self.mycon = MySQLdb.connect(host='localhost', user='crud',passwd='cruduser', db='DBCrud')
          # Creamos el cursor, pero especificando que sea de la subclase DictCursor
          
-         self.micursor = Conexion.cursor(MySQLdb.cursors.DictCursor);
+         self.micursor = self.mycon.cursor(MySQLdb.cursors.DictCursor);
+   
          
-      def insData(self,clase,crew,longi,anch,alt,fname): 
-         query = "INSERT INTO ships(id,Clase,Crew,Longi, Anch, Alt, Fname)VALUES(3,\"sss\",33,33,33,33,\"fff\");"
+      
+      def insData(self,clase,crew,longi,anch,alt,fname):
+         query = "INSERT INTO ships (id, Clase, Crew, Longi, Anch, Alt, Fname) VALUES (66,\""+clase+"\","+str(crew)+","+str(longi)+","+str(anch)+","+str(alt)+","+"\""+fname+"\");"
+         
          self.micursor.execute(query)
+         self.mycon.commit() 
+
+      def updateData(self,name):
+         
+         query = "UPDATE ships SET Clase = \"zaza\", Crew=\"444\" WHERE Id = 9;" 
+         self.micursor.execute(query)
+         self.mycon.commit() 
+      
+      def delData(self,name):
+         
+         query = "DELETE FROM ships WHERE Clase =\""+name+"\";"
+         self.micursor.execute(query)
+         self.mycon.commit() 
+      
+      def showData(self):
+         print "fff"
+         query= "SELECT * FROM ships WHERE id=9;" 
+         self.micursor.execute(query)      
+         registro= self.micursor.fetchone()
+         # Imprimimos el registro resultante
+         return registro
+         
       
       def disconnect():
-         self.micursor.close();
+         self.micursor.close()
+         self.mycon.commit() 

@@ -66,7 +66,7 @@ class CRUD_GUI:
  
     def onButtonPressed(self,button):
         self.status_bar.push(0, "Ejecutando insertar data")
-        self.dbobj.insData("ss",333,33,33,33,"dd");
+        
         
 		
     
@@ -91,20 +91,24 @@ class CRUD_GUI:
     def insertarData(self):
         self.button1.set_label("Insertar")
         self.button1.set_sensitive(True)
-        self.dbobj.insData("sss",23,23,23,23,"sss")
+        self.dbobj.insData("kkkk",88,77,66,55,"sss")
          
 
     def eliminarData(self):
         self.button1.set_label("Eliminar")
         self.button1.set_sensitive(True)
+        self.dbobj.delData("kkkk")
 
     def visualizarData(self):
         self.button1.set_sensitive(False)  
+        reg = self.dbobj.showData()
+        print reg
         
     def actualizarData(self):
         self.button1.set_label("Actualizar")
         self.button1.set_sensitive(True) 
-    
+        self.dbobj.updateData("kkkk")
+        
     def destroy(self,window):
 		
         Gtk.main_quit()
