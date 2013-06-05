@@ -39,15 +39,16 @@ class Dbclass:
    
          
       
-      def insData(self,clase,crew,longi,anch,alt,fname):
-         query = "INSERT INTO ships (id, Clase, Crew, Longi, Anch, Alt, Fname) VALUES (66,\""+clase+"\","+str(crew)+","+str(longi)+","+str(anch)+","+str(alt)+","+"\""+fname+"\");"
+      def insData(self,clase,crew,longi,anch,alt):
+         query = "INSERT INTO ships (id, Clase, Crew, Longi, Anch, Alt) VALUES (66,\""+clase+"\","+str(crew)+","+str(longi)+","+str(anch)+","+str(alt)+");"
          
          self.micursor.execute(query)
          self.mycon.commit() 
 
-      def updateData(self,name):
+      def updateData(self,idold,clase,crew,longi,anch,alt):
          
-         query = "UPDATE ships SET Clase = \"zaza\", Crew=\"444\" WHERE Id = 9;" 
+         query = "UPDATE ships SET Clase = \""+clase+"\", Crew ="+str(crew)+", Longi ="+str(longi)+", Anch="+str(anch)+", Alt="+str(alt)+" WHERE id ="+str(idold)+";"
+                 
          self.micursor.execute(query)
          self.mycon.commit() 
       
@@ -58,11 +59,13 @@ class Dbclass:
          self.mycon.commit() 
       
       def showData(self):
-         print "fff"
-         query= "SELECT * FROM ships WHERE id=9;" 
+        
+         query= "SELECT * FROM ships WHERE id=66;" 
          self.micursor.execute(query)      
-         registro= self.micursor.fetchone()
+         registro = self.micursor.fetchone()
+
          # Imprimimos el registro resultante
+             
          return registro
          
       

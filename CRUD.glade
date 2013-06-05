@@ -226,7 +226,7 @@ MA 02110-1301, USA.</property>
                     <property name="can_focus">False</property>
                     <property name="spacing">10</property>
                     <child>
-                      <object class="GtkImage" id="image5">
+                      <object class="GtkImage" id="imgships">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="margin_left">17</property>
@@ -263,6 +263,29 @@ MA 02110-1301, USA.</property>
                           </packing>
                         </child>
                         <child>
+                          <object class="GtkComboBox" id="combobox1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="label10">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Naves Star Trek</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                        <child>
                           <object class="GtkGrid" id="grid3">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -285,23 +308,6 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="label5">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">Nave</property>
-                                <attributes>
-                                  <attribute name="weight" value="bold"/>
-                                  <attribute name="foreground" value="#ffff33330000"/>
-                                </attributes>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">0</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkLabel" id="label8">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
@@ -318,7 +324,7 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry1">
+                              <object class="GtkEntry" id="lclase">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">●</property>
@@ -380,7 +386,7 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry2">
+                              <object class="GtkEntry" id="lcrew">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">●</property>
@@ -410,7 +416,7 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry3">
+                              <object class="GtkEntry" id="llong">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">●</property>
@@ -424,7 +430,7 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry4">
+                              <object class="GtkEntry" id="lanch">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">●</property>
@@ -438,7 +444,7 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry5">
+                              <object class="GtkEntry" id="lalt">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">●</property>
@@ -452,40 +458,13 @@ MA 02110-1301, USA.</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="nfichero">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="invisible_char">●</property>
-                                <property name="shadow_type">none</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">6</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="label9">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">Nombre Fichero</property>
-                                <attributes>
-                                  <attribute name="weight" value="bold"/>
-                                </attributes>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">6</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
+                              <placeholder/>
                             </child>
                           </object>
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">True</property>
-                            <property name="position">1</property>
+                            <property name="position">3</property>
                           </packing>
                         </child>
                         <child>
@@ -501,7 +480,7 @@ MA 02110-1301, USA.</property>
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">True</property>
-                            <property name="position">2</property>
+                            <property name="position">4</property>
                           </packing>
                         </child>
                       </object>
