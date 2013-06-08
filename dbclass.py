@@ -40,7 +40,9 @@ class Dbclass:
          
       
       def insData(self,clase,crew,longi,anch,alt):
-         query = "INSERT INTO ships (id, Clase, Crew, Longi, Anch, Alt) VALUES (66,\""+clase+"\","+str(crew)+","+str(longi)+","+str(anch)+","+str(alt)+");"
+         nid = self.idgenerator() + 1
+         
+         query = "INSERT INTO ships (id, Clase, Crew, Longi, Anch, Alt) VALUES ("+str(nid)+",\""+clase+"\","+str(crew)+","+str(longi)+","+str(anch)+","+str(alt)+");"
          
          self.micursor.execute(query)
          self.mycon.commit() 
@@ -52,15 +54,15 @@ class Dbclass:
          self.micursor.execute(query)
          self.mycon.commit() 
       
-      def delData(self,name):
+      def delData(self,cId,cname):
          
-         query = "DELETE FROM ships WHERE Clase =\""+name+"\";"
+         query = "DELETE FROM ships WHERE Id = "+cId+" AND Clase =\""+cname+"\";"
          self.micursor.execute(query)
          self.mycon.commit() 
       
-      def showData(self):
+      def showData(self, delid,cname):
         
-         query= "SELECT * FROM ships WHERE id=66;" 
+         query= "SELECT * FROM ships WHERE Id = "+delid+" AND Clase =\""+cname+"\";" 
          self.micursor.execute(query)   
          self.mycon.commit()   
          registro = self.micursor.fetchone()
@@ -71,13 +73,21 @@ class Dbclass:
          
       def listDataClase(self):
 
-         query= "SELECT Clase FROM ships WHERE 1;" 
+         query= "SELECT Id,Clase FROM ships WHERE 1;" 
          self.micursor.execute(query)
          self.mycon.commit()      
          registro = self.micursor.fetchall()      
-         
          return registro
       
       def disconnect():
          self.micursor.close()
          self.mycon.commit() 
+
+      def idgenerator(self):
+         query= "SELECT Max(Id) FROM ships WHERE 1 ORDER BY Id;" 
+         self.micursor.execute(query)
+         self.mycon.commit()      
+         registro = self.micursor.fetchone() 
+         return registro['Max(Id)']
+      
+      
