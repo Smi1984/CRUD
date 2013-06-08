@@ -61,13 +61,22 @@ class Dbclass:
       def showData(self):
         
          query= "SELECT * FROM ships WHERE id=66;" 
-         self.micursor.execute(query)      
+         self.micursor.execute(query)   
+         self.mycon.commit()   
          registro = self.micursor.fetchone()
 
          # Imprimimos el registro resultante
              
          return registro
          
+      def listDataClase(self):
+
+         query= "SELECT Clase FROM ships WHERE 1;" 
+         self.micursor.execute(query)
+         self.mycon.commit()      
+         registro = self.micursor.fetchall()      
+         
+         return registro
       
       def disconnect():
          self.micursor.close()
