@@ -87,7 +87,10 @@ class Dbclass:
          query= "SELECT Max(Id) FROM ships WHERE 1 ORDER BY Id;" 
          self.micursor.execute(query)
          self.mycon.commit()      
+         
          registro = self.micursor.fetchone() 
-         return registro['Max(Id)']
-      
+         if registro['Max(Id)']=="None":
+			 return registro['Max(Id)']
+         else:
+			 return 0
       
