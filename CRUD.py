@@ -186,9 +186,14 @@ class CRUD_GUI:
 				self.lanch.set_text(str(datalist[cmplist[4]]))
  			elif cmp == "Alt":
 				self.lalt.set_text(str(datalist[cmplist[5]]))
-			
-		self.imgshp.set_from_file("src/"+datalist[cmplist[1]]+".jpg")
-	
+        			
+		
+		if os.path.isfile("src/"+datalist[cmplist[1]]+".jpg")==True:
+			self.imgshp.set_from_file("src/"+datalist[cmplist[1]]+".jpg")
+		else:
+			self.imgshp.set_from_file("src/No_img.jpg")
+
+
     def onCombochanged(self,box):
 		#Visualizar primero los datos antes de eliminar
         
