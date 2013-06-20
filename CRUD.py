@@ -161,9 +161,7 @@ class CRUD_GUI:
         self.button1.set_label("Actualizar")
         self.button1.set_sensitive(True)
         self.viselcomb.set_sensitive(True)
-        self.fillCombobox()
-
-        
+        self.fillCombobox()      
     
     def clearTextbox(self):
 		self.lclase.set_text("")
@@ -196,8 +194,6 @@ class CRUD_GUI:
 
     def onCombochanged(self,box):
 		#Visualizar primero los datos antes de eliminar
-        
-       
             
         tree_iter = box.get_active_iter()
         if tree_iter != None:
@@ -208,7 +204,6 @@ class CRUD_GUI:
 			reg = self.dbobj.showData(self.delid,self.delclase)
 			self.fillTextbox(reg)
 
-        
     
     def fillCombobox(self):
         store = Gtk.ListStore(str,str)
@@ -228,7 +223,7 @@ class CRUD_GUI:
     
         
     def destroy(self,window):
-		
+        self.dbobj.disconnect()
         Gtk.main_quit()
     
     def onAboutDialog(self, *args):

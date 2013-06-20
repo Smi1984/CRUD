@@ -79,7 +79,7 @@ class Dbclass:
          registro = self.micursor.fetchall()      
          return registro
       
-      def disconnect():
+      def disconnect(self):
          self.micursor.close()
          self.mycon.commit() 
 
